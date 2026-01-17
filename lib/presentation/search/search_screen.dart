@@ -227,9 +227,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               height: 16,
               child: CircularProgressIndicator(strokeWidth: 2),
             )
-          else
+          else if (state.totalCount > 0)
             Text(
-              '${state.results.length} items',
+              '${state.totalCount} items',
               style: Theme.of(context).textTheme.bodySmall,
             ),
           const Spacer(),

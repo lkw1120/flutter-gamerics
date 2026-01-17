@@ -127,10 +127,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _DetailState():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -189,10 +186,7 @@ return $default(_that.game,_that.screenshots,_that.videos,_that.similarGames,_th
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Game? game,  List<GameScreenshot> screenshots,  List<GameVideo> videos,  List<Game> similarGames,  List<Game> sameDeveloperGames,  CollectionItem? collectionItem,  bool isLoadingGame,  bool isLoadingScreenshots,  bool isLoadingVideos,  bool isLoadingCollection,  bool isLoadingSimilarGames,  bool isLoadingSameDeveloperGames,  bool isDescriptionExpanded,  bool isInitialLoading,  double loadingProgress,  String? errorMessage)  $default,) {final _that = this;
 switch (_that) {
 case _DetailState():
-return $default(_that.game,_that.screenshots,_that.videos,_that.similarGames,_that.sameDeveloperGames,_that.collectionItem,_that.isLoadingGame,_that.isLoadingScreenshots,_that.isLoadingVideos,_that.isLoadingCollection,_that.isLoadingSimilarGames,_that.isLoadingSameDeveloperGames,_that.isDescriptionExpanded,_that.isInitialLoading,_that.loadingProgress,_that.errorMessage);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.game,_that.screenshots,_that.videos,_that.similarGames,_that.sameDeveloperGames,_that.collectionItem,_that.isLoadingGame,_that.isLoadingScreenshots,_that.isLoadingVideos,_that.isLoadingCollection,_that.isLoadingSimilarGames,_that.isLoadingSameDeveloperGames,_that.isDescriptionExpanded,_that.isInitialLoading,_that.loadingProgress,_that.errorMessage);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

@@ -15,6 +15,7 @@ sealed class SearchState with _$SearchState {
     @Default(false) bool isLoading,
     @Default(false) bool hasMore,
     @Default(1) int currentPage,
+    @Default(0) int totalCount,
     @Default([]) List<String> recentSearches,
     @Default(null) String? errorMessage,
   }) = _SearchState;

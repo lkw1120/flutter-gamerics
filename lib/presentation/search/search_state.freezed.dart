@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SearchState {
 
- String get query; List<Game> get results; bool get isLoading; bool get hasMore; int get currentPage; List<String> get recentSearches; String? get errorMessage;
+ String get query; List<Game> get results; bool get isLoading; bool get hasMore; int get currentPage; int get totalCount; List<String> get recentSearches; String? get errorMessage;
 /// Create a copy of SearchState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $SearchStateCopyWith<SearchState> get copyWith => _$SearchStateCopyWithImpl<Sear
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchState&&(identical(other.query, query) || other.query == query)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.hasMore, hasMore) || other.hasMore == hasMore)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&const DeepCollectionEquality().equals(other.recentSearches, recentSearches)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SearchState&&(identical(other.query, query) || other.query == query)&&const DeepCollectionEquality().equals(other.results, results)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.hasMore, hasMore) || other.hasMore == hasMore)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.totalCount, totalCount) || other.totalCount == totalCount)&&const DeepCollectionEquality().equals(other.recentSearches, recentSearches)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,query,const DeepCollectionEquality().hash(results),isLoading,hasMore,currentPage,const DeepCollectionEquality().hash(recentSearches),errorMessage);
+int get hashCode => Object.hash(runtimeType,query,const DeepCollectionEquality().hash(results),isLoading,hasMore,currentPage,totalCount,const DeepCollectionEquality().hash(recentSearches),errorMessage);
 
 @override
 String toString() {
-  return 'SearchState(query: $query, results: $results, isLoading: $isLoading, hasMore: $hasMore, currentPage: $currentPage, recentSearches: $recentSearches, errorMessage: $errorMessage)';
+  return 'SearchState(query: $query, results: $results, isLoading: $isLoading, hasMore: $hasMore, currentPage: $currentPage, totalCount: $totalCount, recentSearches: $recentSearches, errorMessage: $errorMessage)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $SearchStateCopyWith<$Res>  {
   factory $SearchStateCopyWith(SearchState value, $Res Function(SearchState) _then) = _$SearchStateCopyWithImpl;
 @useResult
 $Res call({
- String query, List<Game> results, bool isLoading, bool hasMore, int currentPage, List<String> recentSearches, String? errorMessage
+ String query, List<Game> results, bool isLoading, bool hasMore, int currentPage, int totalCount, List<String> recentSearches, String? errorMessage
 });
 
 
@@ -62,13 +62,14 @@ class _$SearchStateCopyWithImpl<$Res>
 
 /// Create a copy of SearchState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? query = null,Object? results = null,Object? isLoading = null,Object? hasMore = null,Object? currentPage = null,Object? recentSearches = null,Object? errorMessage = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? query = null,Object? results = null,Object? isLoading = null,Object? hasMore = null,Object? currentPage = null,Object? totalCount = null,Object? recentSearches = null,Object? errorMessage = freezed,}) {
   return _then(_self.copyWith(
 query: null == query ? _self.query : query // ignore: cast_nullable_to_non_nullable
 as String,results: null == results ? _self.results : results // ignore: cast_nullable_to_non_nullable
 as List<Game>,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,hasMore: null == hasMore ? _self.hasMore : hasMore // ignore: cast_nullable_to_non_nullable
 as bool,currentPage: null == currentPage ? _self.currentPage : currentPage // ignore: cast_nullable_to_non_nullable
+as int,totalCount: null == totalCount ? _self.totalCount : totalCount // ignore: cast_nullable_to_non_nullable
 as int,recentSearches: null == recentSearches ? _self.recentSearches : recentSearches // ignore: cast_nullable_to_non_nullable
 as List<String>,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -118,10 +119,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _SearchState():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -156,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String query,  List<Game> results,  bool isLoading,  bool hasMore,  int currentPage,  List<String> recentSearches,  String? errorMessage)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String query,  List<Game> results,  bool isLoading,  bool hasMore,  int currentPage,  int totalCount,  List<String> recentSearches,  String? errorMessage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SearchState() when $default != null:
-return $default(_that.query,_that.results,_that.isLoading,_that.hasMore,_that.currentPage,_that.recentSearches,_that.errorMessage);case _:
+return $default(_that.query,_that.results,_that.isLoading,_that.hasMore,_that.currentPage,_that.totalCount,_that.recentSearches,_that.errorMessage);case _:
   return orElse();
 
 }
@@ -177,13 +175,10 @@ return $default(_that.query,_that.results,_that.isLoading,_that.hasMore,_that.cu
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String query,  List<Game> results,  bool isLoading,  bool hasMore,  int currentPage,  List<String> recentSearches,  String? errorMessage)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String query,  List<Game> results,  bool isLoading,  bool hasMore,  int currentPage,  int totalCount,  List<String> recentSearches,  String? errorMessage)  $default,) {final _that = this;
 switch (_that) {
 case _SearchState():
-return $default(_that.query,_that.results,_that.isLoading,_that.hasMore,_that.currentPage,_that.recentSearches,_that.errorMessage);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.query,_that.results,_that.isLoading,_that.hasMore,_that.currentPage,_that.totalCount,_that.recentSearches,_that.errorMessage);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -197,10 +192,10 @@ return $default(_that.query,_that.results,_that.isLoading,_that.hasMore,_that.cu
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String query,  List<Game> results,  bool isLoading,  bool hasMore,  int currentPage,  List<String> recentSearches,  String? errorMessage)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String query,  List<Game> results,  bool isLoading,  bool hasMore,  int currentPage,  int totalCount,  List<String> recentSearches,  String? errorMessage)?  $default,) {final _that = this;
 switch (_that) {
 case _SearchState() when $default != null:
-return $default(_that.query,_that.results,_that.isLoading,_that.hasMore,_that.currentPage,_that.recentSearches,_that.errorMessage);case _:
+return $default(_that.query,_that.results,_that.isLoading,_that.hasMore,_that.currentPage,_that.totalCount,_that.recentSearches,_that.errorMessage);case _:
   return null;
 
 }
@@ -212,7 +207,7 @@ return $default(_that.query,_that.results,_that.isLoading,_that.hasMore,_that.cu
 
 
 class _SearchState implements SearchState {
-  const _SearchState({this.query = '', final  List<Game> results = const [], this.isLoading = false, this.hasMore = false, this.currentPage = 1, final  List<String> recentSearches = const [], this.errorMessage = null}): _results = results,_recentSearches = recentSearches;
+  const _SearchState({this.query = '', final  List<Game> results = const [], this.isLoading = false, this.hasMore = false, this.currentPage = 1, this.totalCount = 0, final  List<String> recentSearches = const [], this.errorMessage = null}): _results = results,_recentSearches = recentSearches;
   
 
 @override@JsonKey() final  String query;
@@ -226,6 +221,7 @@ class _SearchState implements SearchState {
 @override@JsonKey() final  bool isLoading;
 @override@JsonKey() final  bool hasMore;
 @override@JsonKey() final  int currentPage;
+@override@JsonKey() final  int totalCount;
  final  List<String> _recentSearches;
 @override@JsonKey() List<String> get recentSearches {
   if (_recentSearches is EqualUnmodifiableListView) return _recentSearches;
@@ -245,16 +241,16 @@ _$SearchStateCopyWith<_SearchState> get copyWith => __$SearchStateCopyWithImpl<_
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchState&&(identical(other.query, query) || other.query == query)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.hasMore, hasMore) || other.hasMore == hasMore)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&const DeepCollectionEquality().equals(other._recentSearches, _recentSearches)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SearchState&&(identical(other.query, query) || other.query == query)&&const DeepCollectionEquality().equals(other._results, _results)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.hasMore, hasMore) || other.hasMore == hasMore)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.totalCount, totalCount) || other.totalCount == totalCount)&&const DeepCollectionEquality().equals(other._recentSearches, _recentSearches)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,query,const DeepCollectionEquality().hash(_results),isLoading,hasMore,currentPage,const DeepCollectionEquality().hash(_recentSearches),errorMessage);
+int get hashCode => Object.hash(runtimeType,query,const DeepCollectionEquality().hash(_results),isLoading,hasMore,currentPage,totalCount,const DeepCollectionEquality().hash(_recentSearches),errorMessage);
 
 @override
 String toString() {
-  return 'SearchState(query: $query, results: $results, isLoading: $isLoading, hasMore: $hasMore, currentPage: $currentPage, recentSearches: $recentSearches, errorMessage: $errorMessage)';
+  return 'SearchState(query: $query, results: $results, isLoading: $isLoading, hasMore: $hasMore, currentPage: $currentPage, totalCount: $totalCount, recentSearches: $recentSearches, errorMessage: $errorMessage)';
 }
 
 
@@ -265,7 +261,7 @@ abstract mixin class _$SearchStateCopyWith<$Res> implements $SearchStateCopyWith
   factory _$SearchStateCopyWith(_SearchState value, $Res Function(_SearchState) _then) = __$SearchStateCopyWithImpl;
 @override @useResult
 $Res call({
- String query, List<Game> results, bool isLoading, bool hasMore, int currentPage, List<String> recentSearches, String? errorMessage
+ String query, List<Game> results, bool isLoading, bool hasMore, int currentPage, int totalCount, List<String> recentSearches, String? errorMessage
 });
 
 
@@ -282,13 +278,14 @@ class __$SearchStateCopyWithImpl<$Res>
 
 /// Create a copy of SearchState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? query = null,Object? results = null,Object? isLoading = null,Object? hasMore = null,Object? currentPage = null,Object? recentSearches = null,Object? errorMessage = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? query = null,Object? results = null,Object? isLoading = null,Object? hasMore = null,Object? currentPage = null,Object? totalCount = null,Object? recentSearches = null,Object? errorMessage = freezed,}) {
   return _then(_SearchState(
 query: null == query ? _self.query : query // ignore: cast_nullable_to_non_nullable
 as String,results: null == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
 as List<Game>,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,hasMore: null == hasMore ? _self.hasMore : hasMore // ignore: cast_nullable_to_non_nullable
 as bool,currentPage: null == currentPage ? _self.currentPage : currentPage // ignore: cast_nullable_to_non_nullable
+as int,totalCount: null == totalCount ? _self.totalCount : totalCount // ignore: cast_nullable_to_non_nullable
 as int,recentSearches: null == recentSearches ? _self._recentSearches : recentSearches // ignore: cast_nullable_to_non_nullable
 as List<String>,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,

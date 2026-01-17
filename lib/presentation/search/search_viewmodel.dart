@@ -48,7 +48,7 @@ class SearchViewModel extends StateNotifier<SearchState> {
     
         final trimmedQuery = query.trim();
         if (trimmedQuery.isEmpty) {
-          state = state.copyWith(results: [], currentPage: 1, hasMore: false);
+          state = state.copyWith(results: [], currentPage: 1, hasMore: false, totalCount: 0);
       return;
     }
     
@@ -57,6 +57,7 @@ class SearchViewModel extends StateNotifier<SearchState> {
             results: [],
             currentPage: 1,
             hasMore: false,
+            totalCount: 0,
             errorMessage: null,
           );
       return;
@@ -88,6 +89,7 @@ class SearchViewModel extends StateNotifier<SearchState> {
           isLoading: false,
           results: paginatedResult.results,
           hasMore: paginatedResult.hasNext,
+          totalCount: paginatedResult.count,
         );
       },
     );

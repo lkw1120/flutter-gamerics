@@ -118,10 +118,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _ExploreState():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -180,10 +177,7 @@ return $default(_that.games,_that.selectedCategoryId,_that.selectedCategoryTitle
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Game> games,  String? selectedCategoryId,  String? selectedCategoryTitle,  bool isInitialLoading,  bool isLoadingMore,  bool canLoadMore,  String? errorMessage)  $default,) {final _that = this;
 switch (_that) {
 case _ExploreState():
-return $default(_that.games,_that.selectedCategoryId,_that.selectedCategoryTitle,_that.isInitialLoading,_that.isLoadingMore,_that.canLoadMore,_that.errorMessage);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.games,_that.selectedCategoryId,_that.selectedCategoryTitle,_that.isInitialLoading,_that.isLoadingMore,_that.canLoadMore,_that.errorMessage);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
