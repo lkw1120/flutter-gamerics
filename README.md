@@ -2,18 +2,16 @@
 
 🎮 A Flutter app for discovering and managing your favorite games using the RAWG API.
 
+## Screenshots
+
+<!-- Add screenshots here -->
+<img src="https://github.com/lkw1120/flutter-gamerics/blob/main/assets/images/snapshot_1.png" width="270" height="480"/><img src="https://github.com/lkw1120/flutter-gamerics/blob/main/assets/images/snapshot_2.png" width="270" height="480"/><img src="https://github.com/lkw1120/flutter-gamerics/blob/main/assets/images/snapshot_3.png" width="270" height="480"/>
+</br>
+<img src="https://github.com/lkw1120/flutter-gamerics/blob/main/assets/images/snapshot_4.png" width="270" height="480"/><img src="https://github.com/lkw1120/flutter-gamerics/blob/main/assets/images/snapshot_5.png" width="270" height="480"/><img src="https://github.com/lkw1120/flutter-gamerics/blob/main/assets/images/snapshot_6.png" width="270" height="480"/>
+
 ## Overview
 
 Gamerics is a mobile application built with Flutter that helps you discover, search, and manage your favorite games. The app integrates with the RAWG API to provide comprehensive game information including details, screenshots, and trailers.
-
-### Features
-
-- **Game Discovery**: Browse games by categories, platforms, genres, and more
-- **Search**: Search for games with real-time results
-- **Collections**: Save favorites and track play status (Want to Play, Playing, Completed, Dropped)
-- **Game Details**: View detailed information, screenshots, and trailers
-- **Recent Searches**: Quick access to your recent search queries
-- **Dark Mode**: Automatic theme switching based on system settings
 
 ## Getting Started
 
@@ -56,6 +54,15 @@ The architecture includes:
 - **GoRouter** for navigation
 - **SharedPreferences** for simple key-value storage
 - **Freezed** for immutable data classes
+
+## Features
+
+- **Game Discovery**: Browse games by categories, platforms, genres, and more
+- **Search**: Search for games with real-time results
+- **Collections**: Save favorites and track play status (Want to Play, Playing, Completed, Dropped)
+- **Game Details**: View detailed information, screenshots, and trailers
+- **Recent Searches**: Quick access to your recent search queries
+- **Dark Mode**: Automatic theme switching based on system settings
 
 ## Contributing
 
